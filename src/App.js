@@ -8,6 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Cards from './pages/Cards';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/portfolio' element={<Portfolio />} />
         <Route path='/cards' element={<Cards />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter >
   );
