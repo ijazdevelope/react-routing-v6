@@ -2,7 +2,7 @@ import './App.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'; //Navigate for conditionally rerendring the components
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -11,12 +11,13 @@ import Cards from './pages/Cards';
 import NotFound from './pages/NotFound';
 
 function App() {
+  const isLogged = true
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={isLogged ? <About /> : <Navigate replace to='/contact' />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/portfolio' element={<Portfolio />} />
         <Route path='/cards/:categories/:id' element={<Cards />} /> {/* categories for dynamic url */}

@@ -3,8 +3,9 @@ import { useParams, useSearchParams } from 'react-router-dom'
 
 const Cards = () => {
     const { categories, id } = useParams();
-    const [searchParam, setSearchParam] = useSearchParams(); // useSearchParams hook for geting the query parameter
-    console.log(searchParam)
+    const [searchParam, setSearchParam] = useSearchParams(); // useSearchParams hook for geting the query parameter after ? mark in url
+    console.log(searchParam.get('price'))
+    console.log(searchParam.get('sorting'))
     return (
         <section className='p-3'>
             <h4>Our Cards {categories} and {id} </h4>
