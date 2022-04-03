@@ -1,9 +1,13 @@
 import React from 'react'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 const Cards = () => {
+    const { categories, id } = useParams();
+    const [searchParam, setSearchParam] = useSearchParams(); // useSearchParams hook for geting the query parameter
+    console.log(searchParam)
     return (
         <section className='p-3'>
-            <h4>Our Cards</h4>
+            <h4>Our Cards {categories} and {id} </h4>
             <div className='row justify-content-between'>
                 <main className='col-lg-4 col-md-6'>
                     <div className="card">

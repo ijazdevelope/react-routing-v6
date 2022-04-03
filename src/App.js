@@ -19,7 +19,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/portfolio' element={<Portfolio />} />
-        <Route path='/cards' element={<Cards />} />
+        <Route path='/cards/:categories/:id' element={<Cards />} /> {/* categories for dynamic url */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter >
