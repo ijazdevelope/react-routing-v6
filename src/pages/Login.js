@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import InputField from '../components/InputField';
 
 const Login = () => {
     const [inputValue, setInputValue] = useState({
@@ -22,12 +23,30 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
             <h3 className='my-3'>Login</h3>
             <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email address</label>
-                <input onChange={handleChange} type="email" className="form-control" name='email' id="email" placeholder="name@example.com" />
+                <InputField
+                    name='email'
+                    type='email'
+                    inputClassName='form-control'
+                    id='email'
+                    placeholder="name@example.com"
+                    label='Email address'
+                    labelClass='form-label'
+                    htmlFor="email"
+                    onChange={handleChange}
+                />
             </div>
             <div className="mb-3">
-                <label htmlFor="phone" className="form-label">Phone No...</label>
-                <input onChange={handleChange} type="tel" className="form-control" name='phone' id="phone" placeholder="+92-332-54415221" />
+                <InputField
+                    type='tel'
+                    inputClassName='form-control'
+                    name='phone'
+                    id='phone'
+                    placeholder="+92-332-54415221"
+                    label='Phone No...'
+                    labelClass='form-label'
+                    htmlFor="phone"
+                    onChange={handleChange}
+                />
             </div>
             <div className="mb-3">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>

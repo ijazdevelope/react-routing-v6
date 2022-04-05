@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import InputField from '../components/InputField'
 
 const Login = () => {
     const [inputValue, setInputValue] = useState({
@@ -21,16 +22,43 @@ const Login = () => {
         <form className='row' onSubmit={handleSubmit}>
             <h3 className='my-3'>Sign Up</h3>
             <div className="mb-3 col-lg-6">
-                <label htmlFor="fname" className="form-label">First Name</label>
-                <input onChange={hanldeChange} type="text" className="form-control" name='fname' id="fname" placeholder="First Name...." />
+                <InputField
+                    onChange={hanldeChange}
+                    type="text"
+                    inputClassName='form-control'
+                    name='fname'
+                    id="fname"
+                    placeholder="First Name...."
+                    label='First Name'
+                    labelClass='form-label'
+                    htmlFor="fname"
+                />
             </div>
             <div className="mb-3 col-lg-6">
-                <label htmlFor="lname" className="form-label">Last Name</label>
-                <input onChange={hanldeChange} type="text" className="form-control" name='lname' id="lname" placeholder="Last Name..." />
+                <InputField
+                    onChange={hanldeChange}
+                    type="text"
+                    inputClassName='form-control'
+                    name='lname'
+                    id="lname"
+                    placeholder="Last Name...."
+                    htmlFor="lname"
+                    label='Last Name'
+                    labelClass='form-label'
+                />
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                <input onChange={hanldeChange} name='email' type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                <InputField
+                    onChange={hanldeChange}
+                    type="email"
+                    inputClassName='form-control'
+                    name='email'
+                    id="email"
+                    placeholder="Last Name...."
+                    htmlFor="email"
+                    label='Email Address'
+                    labelClass='form-label'
+                />
             </div>
             <div className="mb-3">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
