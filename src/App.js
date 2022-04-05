@@ -9,18 +9,24 @@ import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Cards from './pages/Cards';
 import NotFound from './pages/NotFound';
+import Registration from './pages/Registration';
 
 function App() {
-  const isLogged = true
+  const isLogged = false
+  const data = {
+    navigate: 'about page is not found!'
+  }
+
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/about' element={isLogged ? <About /> : <Navigate replace to='/contact' />} />
+        <Route path='/about' element={isLogged ? <About /> : <Navigate to='/contact' replace state={data} />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/portfolio' element={<Portfolio />} />
         <Route path='/cards/:categories/:id' element={<Cards />} /> {/* categories for dynamic url */}
+        <Route path="/registration" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter >

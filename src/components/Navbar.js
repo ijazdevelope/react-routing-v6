@@ -27,6 +27,9 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/cards/mobile/id">Our Cards</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/registration">Registration</NavLink>
+                            </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown link

@@ -1,11 +1,14 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 const Contact = () => {
+    const location = useLocation()
+    console.log(location)
     return (
         <div>
             <div className="container">
                 <div className="row col-8 mx-auto">
-                    <h3 className='my-3'>Contact Us!</h3>
+                    <h3 className='my-3'>Contact Us! </h3>
                     <div class="mb-3 col-lg-6">
                         <label for="fname" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="fname" placeholder="First Name..." />
