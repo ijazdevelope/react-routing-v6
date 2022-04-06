@@ -1,25 +1,32 @@
 import React, { useState } from 'react'
 import InputField from '../components/InputField'
 
+const userValue = {
+    fname: '',
+    lname: '',
+    email: '',
+    message: ''
+}
+
 const Login = () => {
-    const [inputValue, setInputValue] = useState({
-        fname: '',
-        lname: '',
-        email: '',
-        message: ''
-    })
+    const [data, setData] = useState([])
+    const [inputValue, setInputValue] = useState({ ...userValue })
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(inputValue)
+        data.push(inputValue);
+        localStorage.setItem('userData', JSON.stringify(data));
+        setInputValue(userValue)
+        console.log(data, 'setUserData')
     }
     const hanldeChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setInputValue({ ...inputValue, [name]: value })
+        setInputValue({ ...inputValue, [name]: value });
     }
 
     return (
-        <form className='row' onSubmit={handleSubmit}>
+        <form className='row' onSubmit={handleSubmit} >
             <h3 className='my-3'>Sign Up</h3>
             <div className="mb-3 col-lg-6">
                 <InputField
@@ -32,6 +39,7 @@ const Login = () => {
                     label='First Name'
                     labelClass='form-label'
                     htmlFor="fname"
+                    value={inputValue.fname}
                 />
             </div>
             <div className="mb-3 col-lg-6">
@@ -45,6 +53,7 @@ const Login = () => {
                     htmlFor="lname"
                     label='Last Name'
                     labelClass='form-label'
+                    value={inputValue.lname}
                 />
             </div>
             <div className="mb-3">
@@ -58,11 +67,12 @@ const Login = () => {
                     htmlFor="email"
                     label='Email Address'
                     labelClass='form-label'
+                    value={inputValue.email}
                 />
             </div>
             <div className="mb-3">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-                <textarea onChange={hanldeChange} className="form-control" name='message' id="exampleFormControlTextarea1" rows="3" placeholder='Your Message...'></textarea>
+                <textarea value={inputValue.message} onChange={hanldeChange} className="form-control" name='message' id="exampleFormControlTextarea1" rows="3" placeholder='Your Message...'></textarea>
             </div>
             <div>
                 <button className='btn btn-success'>Submit</button>
